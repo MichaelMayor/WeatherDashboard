@@ -30,29 +30,29 @@
                 <div class="column is-one-quarter">
                     <div class="field has-addons">
                         <div class="control">
-                            <input class="input" type="text" placeholder="City Name">
+                            <input class="input" id="searchbar" type="text" placeholder="City Name">
                         </div>
                         <div class="control">
-                            <a class="button is-info">
+                            <a class="button is-info" id="search-button">
                                 Search
                             </a>
                         </div>
                     </div>
-                    <table class="table">
+                    <table class="table" id="history">
                         <thead>
                             <th>Search History</th>
                         </thead>
                         <tbody></tbody>
                     </table>
                 </div>
-                <div class="column">
+                <div class="column" id="results">
                     <div class="box">
-                        <h2 class="title">City Name<span>(Today's Date)</span></h2>
+                        <h2 class="title" id="cityname">City Name<span id="date">(Today's Date)</span></h2>
                         <div class="content">
-                            <p>Temperature: <span>Value</span></p>
-                            <p>Humidity: <span>Value</span></p>
-                            <p>Wind Speed: <span>Value</span></p>
-                            <p>UV Index: <span>Value</span></p>
+                            <p>Temperature: <span id="todayTemp">Value</span></p>
+                            <p>Humidity: <span id="todayHumidity">Value</span></p>
+                            <p>Wind Speed: <span id="todayWindspeed">Value</span></p>
+                            <p>UV Index: <span id="todayUV">Value</span></p>
                         </div>
                     </div>
                     <div class="content">
@@ -60,51 +60,51 @@
                         <div class="columns">
                             <div class="column">
                                 <div class="message is-info">
-                                    <div class="message-header">Date</div>
+                                    <div class="message-header" id="day1Date">Date</div>
                                     <div class="message-body">
-                                        <img src="http://openweathermap.org/img/wn/10d@2x.png">
-                                        <p>Temperature: <span>Value</span></p>
-                                        <p>Humidity: <span>Value</span></p>
+                                        <img id="day1Icon" src="http://openweathermap.org/img/wn/10d@2x.png">
+                                        <p>Temperature: <span id="day1Temp">Value</span></p>
+                                        <p>Humidity: <span id="day1Temp">Value</span></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="message is-info">
-                                    <div class="message-header">Date</div>
+                                    <div class="message-header" id="day2Date">Date</div>
                                     <div class="message-body">
-                                        <img src="http://openweathermap.org/img/wn/10d@2x.png">
-                                        <p>Temperature: <span>Value</span></p>
-                                        <p>Humidity: <span>Value</span></p>
+                                        <img id="day2Icon" src="http://openweathermap.org/img/wn/10d@2x.png">
+                                        <p>Temperature: <span id="day2Temp">Value</span></p>
+                                        <p>Humidity: <span id="day2Temp">Value</span></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="message is-info">
-                                    <div class="message-header">Date</div>
+                                    <div class="message-header" id="day3Date">Date</div>
                                     <div class="message-body">
-                                        <img src="http://openweathermap.org/img/wn/10d@2x.png">
-                                        <p>Temperature: <span>Value</span></p>
-                                        <p>Humidity: <span>Value</span></p>
+                                        <img id="day3Icon" src="http://openweathermap.org/img/wn/10d@2x.png">
+                                        <p>Temperature: <span id="day3Temp">Value</span></p>
+                                        <p>Humidity: <span id="day3Temp">Value</span></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="message is-info">
-                                    <div class="message-header">Date</div>
+                                    <div class="message-header" id="day4Date">Date</div>
                                     <div class="message-body">
-                                        <img src="http://openweathermap.org/img/wn/10d@2x.png">
-                                        <p>Temperature: <span>Value</span></p>
-                                        <p>Humidity: <span>Value</span></p>
+                                        <img id="day4Icon" src="http://openweathermap.org/img/wn/10d@2x.png">
+                                        <p>Temperature: <span id="day4Temp">Value</span></p>
+                                        <p>Humidity: <span id="day4Temp">Value</span></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="message is-info">
-                                    <div class="message-header">Date</div>
+                                    <div class="message-header" id="day4Date">Date</div>
                                     <div class="message-body">
-                                        <img src="http://openweathermap.org/img/wn/10d@2x.png">
-                                        <p>Temperature: <span>Value</span></p>
-                                        <p>Humidity: <span>Value</span></p>
+                                        <img id="day4Icon" src="http://openweathermap.org/img/wn/10d@2x.png">
+                                        <p>Temperature: <span id="day4Temp">Value</span></p>
+                                        <p>Humidity: <span id="day4Temp">Value</span></p>
                                     </div>
                                 </div>
                             </div>
