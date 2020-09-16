@@ -19,14 +19,17 @@
 </head>
 
 <body>
+    <!-- header -->
     <div class="navbar is-primary">
         <div class="container pt-2">
             <h1 class="title">Weather Dashboard</h1>
         </div>
     </div>
+    <!-- body -->
     <section class="section">
         <div class="container">
             <div class="columns">
+                <!-- Searchbar and search history -->
                 <div class="column is-one-quarter">
                     <div class="field has-addons">
                         <div class="control">
@@ -45,6 +48,7 @@
                         <tbody id="tableBody"></tbody>
                     </table>
                 </div>
+                <!-- Current Weather -->
                 <div class="column" id="results">
                     <div class="box">
                         <h2 class="title"><span id="cityName">City Name</span> (<span id="date">Today's Date</span>)
@@ -57,6 +61,7 @@
                             <p>UV Index: <span id="todayUV">Value</span></p>
                         </div>
                     </div>
+                    <!-- 5-day forecast -->
                     <div class="content">
                         <h3 class="subtitle ml-2">5-Day Forecast</h3>
                         <div class="columns">
@@ -119,7 +124,7 @@
     </section>
 
 
-
+    <!-- Javascript reference -->
     <script src="./assets/script.js"></script>
 </body>
 

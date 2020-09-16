@@ -1,14 +1,17 @@
 $(document).ready(function () {
-
+    // Rcover local storage and build search history table with it
     var searchHistory = JSON.parse(localStorage.getItem("searchHistory"))
     if (searchHistory !== null) {
         buildTable(searchHistory)
         search(searchHistory[0])
     } else {
         searchHistory = [];
+        search("London")
     }
 
+    // Write weather data to page
     function updatePage(WeatherData) {
+        // Today's weather
         var date = new Date(WeatherData.current.dt * 1000)
         dateStr = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
         $("#date").text(dateStr);
@@ -24,6 +27,7 @@ $(document).ready(function () {
         } else {
             $("#todayUV").addClass("tag is-success");
         }
+        // 5-day forecast
         for (var i = 0; i < 5; i++) {
             var date = new Date(WeatherData.daily[i + 1].dt * 1000)
             dateStr = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
@@ -35,12 +39,14 @@ $(document).ready(function () {
 
     }
 
+    //Adds last searched city to search history
     function updateHistory(WeatherData) {
         searchHistory.unshift(WeatherData.name);
         localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
         buildTable(searchHistory);
     };
 
+    //Creates the Search History table
     function buildTable(searchHistory) {
         $("td").detach();
         if (searchHistory.length > 10) {
@@ -61,6 +67,7 @@ $(document).ready(function () {
         }
     };
 
+    // Runs search on button click
     $("#search-button").click(function () {
         var cityName = $("#searchbar")
             .val()
@@ -68,6 +75,7 @@ $(document).ready(function () {
         search(cityName);
     });
 
+    // Runs the weather search for a given city name
     function search(cityName) {
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?";
 
@@ -93,6 +101,7 @@ $(document).ready(function () {
         });
     }
 
+    //Triggers the search when clicking the history table
     $("#tableBody").click(function (event) {
         if (event.target.matches("td")) {
             search(event.target.textContent)
