@@ -1,19 +1,19 @@
 $(document).ready(function () {
     // Rcover local storage and build search history table with it
-    var searchHistory = JSON.parse(localStorage.getItem("searchHistory"))
+    var searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
     if (searchHistory !== null) {
-        buildTable(searchHistory)
-        search(searchHistory[0])
+        buildTable(searchHistory);
+        search(searchHistory[0]);
     } else {
         searchHistory = [];
-        search("London")
+        search("London");
     }
 
     // Write weather data to page
     function updatePage(WeatherData) {
         // Today's weather
-        var date = new Date(WeatherData.current.dt * 1000)
-        dateStr = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
+        var date = new Date(WeatherData.current.dt * 1000);
+        var dateStr = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
         $("#date").text(dateStr);
         $("#todayIcon").attr("src", "http://openweathermap.org/img/wn/" + WeatherData.current.weather[0].icon + "@2x.png");
         $("#todayTemp").text(WeatherData.current.temp);
@@ -29,7 +29,7 @@ $(document).ready(function () {
         }
         // 5-day forecast
         for (var i = 0; i < 5; i++) {
-            var date = new Date(WeatherData.daily[i + 1].dt * 1000)
+            date = new Date(WeatherData.daily[i + 1].dt * 1000);
             dateStr = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
             $("#day" + i + "Date").text(dateStr);
             $("#day" + i + "Icon").attr("src", "http://openweathermap.org/img/wn/" + WeatherData.daily[i + 1].weather[0].icon + "@2x.png");
@@ -44,7 +44,7 @@ $(document).ready(function () {
         searchHistory.unshift(WeatherData.name);
         localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
         buildTable(searchHistory);
-    };
+    }
 
     //Creates the Search History table
     function buildTable(searchHistory) {
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 $("#tableRow" + i).append(cell);
             }
         }
-    };
+    }
 
     // Runs search on button click
     $("#search-button").click(function () {
@@ -83,7 +83,7 @@ $(document).ready(function () {
             "appid": "7e254ff99ca72e0b2e785026f47b52f0"
         };
 
-        queryParams.q = cityName
+        queryParams.q = cityName;
         queryURL = queryURL + $.param(queryParams);
 
         $.ajax({
@@ -93,21 +93,21 @@ $(document).ready(function () {
             updateHistory(response);
             $("#cityName").text(response.name);
             var latlonURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&exclude=minutely,hourly&units=imperial&appid=7e254ff99ca72e0b2e785026f47b52f0";
-            console.log(latlonURL)
+            console.log(latlonURL);
             $.ajax({
                 url: latlonURL,
                 method: "GET",
-            }).then(updatePage)
+            }).then(updatePage);
         });
     }
 
     //Triggers the search when clicking the history table
     $("#tableBody").click(function (event) {
         if (event.target.matches("td")) {
-            search(event.target.textContent)
+            search(event.target.textContent);
         }
     });
 
 
 
-})
+});
