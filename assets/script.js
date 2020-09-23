@@ -15,7 +15,7 @@ $(document).ready(function () {
         var date = new Date(WeatherData.current.dt * 1000);
         var dateStr = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
         $("#date").text(dateStr);
-        $("#todayIcon").attr("src", "http://openweathermap.org/img/wn/" + WeatherData.current.weather[0].icon + "@2x.png");
+        $("#todayIcon").attr("src", "https://openweathermap.org/img/wn/" + WeatherData.current.weather[0].icon + "@2x.png");
         $("#todayTemp").text(WeatherData.current.temp);
         $("#todayHumidity").text(WeatherData.current.humidity);
         $("#todayWindspeed").text(WeatherData.current.wind_speed);
@@ -32,7 +32,7 @@ $(document).ready(function () {
             date = new Date(WeatherData.daily[i + 1].dt * 1000);
             dateStr = (date.getMonth() + 1).toString() + "/" + date.getDate() + "/" + date.getFullYear();
             $("#day" + i + "Date").text(dateStr);
-            $("#day" + i + "Icon").attr("src", "http://openweathermap.org/img/wn/" + WeatherData.daily[i + 1].weather[0].icon + "@2x.png");
+            $("#day" + i + "Icon").attr("src", "https://openweathermap.org/img/wn/" + WeatherData.daily[i + 1].weather[0].icon + "@2x.png");
             $("#day" + i + "Temp").text(WeatherData.daily[i + 1].temp.max);
             $("#day" + i + "Humidity").text(WeatherData.daily[i + 1].humidity);
         }
@@ -77,7 +77,7 @@ $(document).ready(function () {
 
     // Runs the weather search for a given city name
     function search(cityName) {
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?";
 
         var queryParams = {
             "appid": "7e254ff99ca72e0b2e785026f47b52f0"
