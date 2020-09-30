@@ -8,7 +8,11 @@ $(document).ready(function () {
         searchHistory = [];
         search("London");
     }
-
+jQuery.ajaxPrefilter(function(options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+});
     // Write weather data to page
     function updatePage(WeatherData) {
         // Today's weather
